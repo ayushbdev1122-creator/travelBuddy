@@ -1,14 +1,30 @@
-import { Geist, Geist_Mono, Roboto } from "next/font/google"
+import { Instrument_Serif, Manrope, Space_Grotesk } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import type { Metadata } from "next"
 
-const roboto = Roboto({subsets:['latin'],variable:'--font-sans'})
+export const metadata: Metadata = {
+  title: "Wildraum | Find your space outside",
+  description: "Handpicked camps, cabins and outdoor stays across Germany and Europe.",
+}
 
-const fontMono = Geist_Mono({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-body",
+})
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+})
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  variable: "--font-editorial",
 })
 
 export default function RootLayout({
@@ -20,10 +36,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", roboto.variable)}
+      className={cn("antialiased", manrope.variable, spaceGrotesk.variable, instrumentSerif.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider forcedTheme="light">{children}</ThemeProvider>
       </body>
     </html>
   )
