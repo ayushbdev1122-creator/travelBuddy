@@ -13,7 +13,7 @@ export function SiteFooter() {
             <p className="mt-4 text-[9px] font-semibold tracking-[0.14em] text-[#8e9488] uppercase">Kedarnath · Himalaya</p>
           </div>
           <div className="grid grid-cols-3 gap-4 text-[10px] sm:gap-6">
-            <div className="flex flex-col items-start gap-2.5"><span className="mb-1 font-semibold text-[#8eae37]">Explore</span><a href="#stay">The camp</a><a href="#experience">Photo gallery</a></div>
+            <div className="flex flex-col items-start gap-2.5"><span className="mb-1 font-semibold text-[#8eae37]">Explore</span><a href="#stay">The camp</a><a href="#rates">Rates</a><a href="/booking">Estimate your stay</a><a href="#experience">Photo gallery</a><a href="#faq">FAQs</a></div>
             <div className="flex flex-col items-start gap-2.5"><span className="mb-1 font-semibold text-[#8eae37]">Location</span><a href="#location">Kedarnath</a><a href={locationUrl} target="_blank" rel="noreferrer">Google Maps</a></div>
             <div className="flex flex-col items-start gap-2.5"><span className="mb-1 font-semibold text-[#8eae37]">Coordinates</span><a href={locationUrl} target="_blank" rel="noreferrer">30.7321° N</a><a href={locationUrl} target="_blank" rel="noreferrer">79.0656° E</a></div>
           </div>

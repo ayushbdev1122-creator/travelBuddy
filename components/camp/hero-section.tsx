@@ -12,9 +12,9 @@ const navigation = [
 
 export function HeroSection() {
   return (
-    <section className="px-3 pt-3 sm:px-5" id="explore">
+    <section id="explore">
       <div
-        className="relative isolate grid min-h-[min(820px,calc(100svh-24px))] grid-rows-[auto_1fr_auto] gap-8 overflow-hidden rounded-[20px] border border-white/20 bg-cover bg-[center_42%] px-5 py-5 text-white sm:gap-10 sm:px-8 sm:py-7 lg:px-[5vw] lg:py-8"
+        className="relative isolate grid min-h-[100svh] grid-rows-[auto_1fr_auto] gap-8 overflow-hidden bg-cover bg-[center_42%] px-5 py-5 text-white sm:gap-10 sm:px-8 sm:py-7 lg:px-[5vw] lg:py-8"
         id="places"
         style={{ backgroundImage: 'url("/camp-photos/mountain-tent.jpeg")' }}
       >
@@ -27,7 +27,7 @@ export function HeroSection() {
             <span className="grid size-8 place-items-center rounded-full border border-white/45 text-base tracking-normal">K</span>
             Kedarnath Camp
           </a>
-          <nav aria-label="Main navigation" className="order-3 flex w-full items-center justify-between gap-4 overflow-x-auto border-t border-white/20 pt-3 sm:order-none sm:w-auto sm:justify-center sm:gap-7 sm:overflow-visible sm:border-0 sm:pt-0">
+          <nav aria-label="Main navigation" className="hidden w-full items-center justify-between gap-4 overflow-x-auto sm:flex sm:w-auto sm:justify-center sm:gap-7 sm:overflow-visible">
             {navigation.map((item, index) => (
               <a className={`shrink-0 text-[11px] transition-colors hover:text-[#d7f27d] sm:text-xs ${index === 0 ? 'text-[#d7f27d]' : 'text-white/85'}`} href={item.href} key={item.href}>
                 {item.label}
@@ -43,12 +43,12 @@ export function HeroSection() {
           </Button>
         </header>
 
-        <div className="my-auto flex w-full max-w-4xl flex-col gap-5 py-3 sm:gap-6 sm:py-8 lg:ml-[7vw]">
+        <div className="my-auto flex w-full max-w-4xl flex-col gap-4 py-2 sm:gap-6 sm:py-8 lg:ml-[7vw]">
           <div>
             <p className="mb-4 flex items-center gap-2 text-[9px] font-semibold tracking-[0.18em] text-[#d7f27d] sm:text-[10px]">
               <span className="size-1.5 rounded-full bg-primary" /> A tent stay in the Himalaya
             </p>
-            <h1 className="max-w-4xl font-[var(--font-display)] text-5xl leading-[0.94] font-medium tracking-normal text-white sm:text-7xl lg:text-8xl">
+            <h1 className="max-w-4xl font-[var(--font-display)] text-[clamp(2.75rem,12vw,4rem)] leading-[0.98] font-medium tracking-normal text-white sm:text-7xl lg:text-8xl">
               Rest easy<br /><em className="font-[var(--font-editorial)] font-normal tracking-normal">at Kedarnath.</em>
             </h1>
           </div>
@@ -61,7 +61,7 @@ export function HeroSection() {
             </p>
             <div className="mt-5 flex flex-col items-start gap-2">
               <Button
-                className="h-11 gap-2 rounded-full bg-primary px-5 text-xs font-semibold text-primary-foreground shadow-lg shadow-black/15 transition-transform hover:-translate-y-0.5 hover:bg-primary/90 sm:text-sm"
+                className="h-11 gap-2 rounded-sm bg-primary px-5 text-xs font-semibold text-primary-foreground shadow-lg shadow-black/15 transition-transform hover:-translate-y-0.5 hover:bg-primary/90 sm:text-sm"
                 render={<a href={whatsappUrl} target="_blank" rel="noreferrer" />}
               >
                 Contact me on WhatsApp <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />
