@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Wildraum | Find your space outside",
-  description: "Handpicked camps, cabins and outdoor stays across Germany and Europe.",
+  title: "Kedarnath Camp | Tented Stay in Uttarakhand",
+  description: "Explore a tent stay in Kedarnath, Uttarakhand. View camp photos and find the exact location on Google Maps.",
 }
 
 const manrope = Manrope({
