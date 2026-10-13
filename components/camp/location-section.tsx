@@ -1,7 +1,7 @@
 import { HugeiconsIcon } from '@hugeicons/react'
 import { ArrowUpRight01Icon } from '@hugeicons/core-free-icons'
 import { Button } from '@/components/ui/button'
-import { locationUrl } from '@/lib/camp-data'
+import { campInfo, locationUrl } from '@/lib/camp-data'
 
 export function LocationSection() {
   return (
@@ -15,11 +15,11 @@ export function LocationSection() {
         <div className="flex min-w-0 flex-col items-start gap-5 border-border lg:border-l lg:py-2 lg:pl-10">
           <div>
             <p className="text-[9px] font-semibold tracking-[0.15em] text-[#8eae37] uppercase">Camp location</p>
-            <p className="mt-1.5 text-sm text-foreground">Kedarnath, Uttarakhand, India</p>
+            <p className="mt-1.5 text-sm text-foreground">{campInfo.location}</p>
           </div>
           <div>
             <p className="text-[9px] font-semibold tracking-[0.15em] text-[#8eae37] uppercase">Map pin</p>
-            <p className="mt-1.5 text-sm text-foreground">30.7321° N · 79.0656° E</p>
+            <p className="mt-1.5 text-sm text-foreground">{campInfo.coordinates}</p>
           </div>
           <Button className="h-11 gap-2 rounded-full bg-primary px-5 text-xs text-primary-foreground hover:bg-primary/90" render={<a href={locationUrl} target="_blank" rel="noreferrer" />}>
             Open Google Maps <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />

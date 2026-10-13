@@ -1,7 +1,7 @@
 import { HugeiconsIcon } from '@hugeicons/react'
 import { ArrowUpRight01Icon } from '@hugeicons/core-free-icons'
 import { Button } from '@/components/ui/button'
-import { locationUrl, whatsappUrl } from '@/lib/camp-data'
+import { campInfo, locationUrl, whatsappUrl } from '@/lib/camp-data'
 
 const navigation = [
   { label: 'The camp', href: '#explore' },
@@ -23,9 +23,9 @@ export function HeroSection() {
         <div className="absolute inset-0 -z-10 bg-linear-to-t from-[#07110d]/70 via-transparent to-[#07110d]/35" />
 
         <header className="flex flex-wrap items-center justify-between gap-x-5 gap-y-4">
-          <a className="flex shrink-0 items-center gap-2 font-[var(--font-display)] text-xs font-bold tracking-[0.12em] text-white no-underline sm:text-sm" href="#explore" aria-label="Kedarnath Camp home">
+          <a className="flex shrink-0 items-center gap-2 font-[var(--font-display)] text-xs font-bold tracking-[0.12em] text-white no-underline sm:text-sm" href="#explore" aria-label={`${campInfo.name} home`}>
             <span className="grid size-8 place-items-center rounded-full border border-white/45 text-base tracking-normal">K</span>
-            Kedarnath Camp
+            {campInfo.name}
           </a>
           <nav aria-label="Main navigation" className="hidden w-full items-center justify-between gap-4 overflow-x-auto sm:flex sm:w-auto sm:justify-center sm:gap-7 sm:overflow-visible">
             {navigation.map((item, index) => (
@@ -46,18 +46,18 @@ export function HeroSection() {
         <div className="my-auto flex w-full max-w-4xl flex-col gap-4 py-2 sm:gap-6 sm:py-8 lg:ml-[7vw]">
           <div>
             <p className="mb-4 flex items-center gap-2 text-[9px] font-semibold tracking-[0.18em] text-[#d7f27d] sm:text-[10px]">
-              <span className="size-1.5 rounded-full bg-primary" /> A tent stay in the Himalaya
+              <span className="size-1.5 rounded-full bg-primary" /> {campInfo.tagline}
             </p>
             <h1 className="max-w-4xl font-[var(--font-display)] text-[clamp(2.75rem,12vw,4rem)] leading-[0.98] font-medium tracking-normal text-white sm:text-7xl lg:text-8xl">
-              Rest easy<br /><em className="font-[var(--font-editorial)] font-normal tracking-normal">at Kedarnath.</em>
+              {campInfo.heroTitle}<br /><em className="font-[var(--font-editorial)] font-normal tracking-normal">{campInfo.heroTitleAccent}</em>
             </h1>
           </div>
 
           <div className="max-w-md">
-            <p className="max-w-sm text-xs leading-6 text-white/85 sm:text-sm sm:leading-7">A quiet place to pause, breathe mountain air, and wake up close to the trail.</p>
+            <p className="max-w-sm text-xs leading-6 text-white/85 sm:text-sm sm:leading-7">{campInfo.subtitle}</p>
             <p className="mt-3 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-white/70">
               <strong className="text-sm font-semibold text-white">Kedarnath</strong>
-              <span className="text-xs">Uttarakhand, India</span>
+              <span className="text-xs">{campInfo.location.replace('Kedarnath, ', '')}</span>
             </p>
             <div className="mt-5 flex flex-col items-start gap-2">
               <Button
@@ -72,8 +72,8 @@ export function HeroSection() {
         </div>
 
         <div className="flex flex-col gap-1 border-t border-white/25 pt-3 text-[8px] font-medium tracking-[0.12em] text-white/75 sm:flex-row sm:items-center sm:justify-between sm:text-[9px]">
-          <span>Tented camp · Kedarnath, Uttarakhand</span>
-          <span>30.7321° N · 79.0656° E</span>
+          <span>Tented camp · {campInfo.location}</span>
+          <span>{campInfo.coordinates}</span>
         </div>
       </div>
     </section>

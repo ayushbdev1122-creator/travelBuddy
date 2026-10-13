@@ -3,6 +3,43 @@ export const whatsappNumber = '919876543210'
 export const whatsappMessage = encodeURIComponent("Hi! I'm interested in staying at your Kedarnath camp. Could you share details about the stay and available dates?")
 export const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
+export const campInfo = {
+  name: 'Kedarnath Camp',
+  slug: 'kedarnath-camp',
+  location: 'Kedarnath, Uttarakhand, India',
+  coordinates: '30.7321° N · 79.0656° E',
+  tagline: 'A tent stay in the Himalaya',
+  heroTitle: 'Rest easy',
+  heroTitleAccent: 'at Kedarnath.',
+  subtitle: 'A quiet place to pause, breathe mountain air, and wake up close to the trail.',
+  nearbyPlaces: [
+    { label: 'Temple', value: '200 metres away' },
+    { label: 'Market', value: '100 metres away' },
+    { label: 'Famous spot', value: 'Hanuman Mandir near the Astha Path, close to the mandir darshan line' },
+  ],
+} as const
+
+export const campPackages = [
+  {
+    id: 'ep',
+    name: 'EP',
+    price: 500,
+    includes: ['heater inside camp', 'hot water for drinking purpose'],
+  },
+  {
+    id: 'cp',
+    name: 'CP',
+    price: 800,
+    includes: ['heater inside camp', 'hot water for drinking purpose', 'hot water for bathing purpose', 'one time meal (dinner)'],
+  },
+  {
+    id: 'ap',
+    name: 'AP',
+    price: 1100,
+    includes: ['welcome tea', 'heater inside camp', 'hot water for drinking purpose', 'hot water for bathing purpose', 'two time meal (dinner, breakfast)'],
+  },
+] as const
+
 export const stayRates = [
   {
     id: 'shared',
@@ -63,3 +100,31 @@ export const galleryPhotos = [
   { label: 'Inside the camp', image: '/camp-photos/orange-tent.jpeg', layout: 'col-span-2' },
   { label: 'Sleeping bags', image: '/camp-photos/sleeping-bags.jpeg', layout: '' },
 ]
+
+export const campFacilities = [
+  {
+    title: 'Temple nearby',
+    detail: 'The temple is located just 200 metres away from the camp.',
+  },
+  {
+    title: 'Market nearby',
+    detail: 'The market is within 100 metres of the camp for quick access.',
+  },
+  {
+    title: 'Washrooms nearby',
+    detail: 'Within approximately 40–50 metres of the camp.',
+  },
+  {
+    title: 'Warm tent',
+    detail: 'A heater or blower is available inside the camp.',
+  },
+  {
+    title: 'Hot water',
+    detail: 'Available for drinking and bathing.',
+  },
+  {
+    title: 'First aid',
+    detail: 'First-aid facility available at the camp.',
+  },
+ 
+] as const
