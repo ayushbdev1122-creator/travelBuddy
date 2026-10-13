@@ -4,7 +4,7 @@ import { campInfo, campPackages } from "@/lib/camp-data"
 
 export const metadata: Metadata = {
   title: `Estimate Your Stay | ${campInfo.name}`,
-  description: `Choose dates, guests, and a stay option to calculate a sample ${campInfo.name.toLowerCase()} estimate.`,
+  description: `Choose your dates, group size, and package to estimate the cost of your stay at ${campInfo.name}. Contact us to confirm availability and final rates.`,
 }
 
 export default async function BookingPage({

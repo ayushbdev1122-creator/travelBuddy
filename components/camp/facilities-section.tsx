@@ -6,15 +6,17 @@ import {
   GlassWaterIcon,
   Location01Icon,
   Toilet01Icon,
+  ShoppingBag01Icon,
+  ChinaTempleIcon,
 } from "@hugeicons/core-free-icons"
 import { campFacilities } from "@/lib/camp-data"
 
 const facilityIcons = {
-  "Temple nearby": Location01Icon,
-  "Market nearby": Location01Icon,
+  "Temple nearby": ChinaTempleIcon,
+  "Market nearby": ShoppingBag01Icon,
   "Famous spot": Location01Icon,
   "Washrooms nearby": Toilet01Icon,
-  "Warm tent": HeaterIcon,
+  "Heating inside the tent": HeaterIcon,
   "Hot water": GlassWaterIcon,
   "First aid": FirstAidKitIcon,
   "Nearby hospital": Hospital01Icon,
@@ -30,7 +32,7 @@ export function FacilitiesSection() {
         <div className="mb-8 flex flex-col justify-between gap-4 sm:mb-10 sm:flex-row sm:items-end">
           <div>
             <p className="mb-3 text-[10px] font-semibold tracking-[0.16em] text-[#8eae37]">
-              Thoughtful essentials
+              Nearby and on-site essentials
             </p>
             <h2 className="text-4xl leading-none font-[var(--font-display)] font-medium sm:text-5xl lg:text-6xl">
               Comforts at{" "}
@@ -39,14 +41,10 @@ export function FacilitiesSection() {
               </em>
             </h2>
           </div>
-          <p className="max-w-xs text-xs leading-6 text-[#767d74] sm:text-sm">
-            Useful facilities close by, so you can focus on your time in
-            Kedarnath.
-          </p>
         </div>
 
         <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-3">
-          {campFacilities.map((facility, index) => (
+          {campFacilities.map((facility) => (
             <article
               className="flex min-h-36 flex-col gap-4 border border-[#e2e5dc] bg-white p-5 sm:p-6"
               key={facility.title}

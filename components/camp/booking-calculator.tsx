@@ -63,22 +63,25 @@ export function BookingCalculator({
       <div className="mx-auto max-w-[1100px] px-5 py-10 sm:px-8 sm:py-16 lg:px-12">
         <div className="mb-9 max-w-2xl">
           <p className="mb-3 text-[10px] font-semibold tracking-[0.16em] text-[#8eae37]">
-            Plan your stay · sample estimate
+            Plan your stay · sample prices
           </p>
           <h1 className="text-4xl leading-[1.02] font-[var(--font-display)] font-medium sm:text-6xl">
-            Your dates,
+            Choose your dates.
             <br />
             <em className="font-[var(--font-editorial)] font-normal">
-              your mountain stay.
+              We’ll help with the rest.
             </em>
           </h1>
           <p className="mt-4 max-w-lg text-xs leading-6 text-[#767d74] sm:text-sm sm:leading-7">
-            Choose dates and group size to see an estimated total. These demo
-            rates are for planning only; availability and final prices must be
-            confirmed with the camp.
+            Select your dates, number of guests, and preferred package to see an
+            estimated cost. Prices shown are for planning purposes only. Contact
+            us to confirm availability and the final rate.
           </p>
         </div>
 
+        <h2 className="mb-3 text-lg font-[var(--font-display)] font-medium">
+          Choose a package
+        </h2>
         <div className="mb-8 grid grid-cols-3 gap-2 sm:gap-3">
           {campPackages.map((pkg) => {
             const isSelected = selectedPackageId === pkg.id
@@ -98,10 +101,17 @@ export function BookingCalculator({
                 <p className="text-[11px] font-semibold tracking-[0.1em] text-[#8eae37] uppercase sm:text-[15px] sm:tracking-[0.14em]">
                   {pkg.name}
                 </p>
-                <p className="mt-2 text-lg font-[var(--font-display)] leading-tight font-medium sm:text-2xl">
-                  ₹{pkg.price} <span className="text-[9px] font-normal text-[#767d74] sm:text-[12px]">
+                <p className="mt-2 text-lg leading-tight font-[var(--font-display)] font-medium sm:text-2xl">
+                  ₹{pkg.price}{" "}
+                  <span className="text-[9px] font-normal text-[#767d74] sm:text-[12px]">
                     / person
                   </span>
+                </p>
+                <p className="mt-2 text-[10px] text-[#596253] sm:text-xs">
+                  {pkg.description}
+                </p>
+                <p className="mt-1 text-[9px] text-[#767d74] sm:text-[10px]">
+                  Sample price
                 </p>
               </label>
             )
@@ -117,10 +127,10 @@ export function BookingCalculator({
               <div className="grid gap-3">
                 <div className="rounded-none border-1 border-[#718d22] border-border bg-white p-4">
                   <p className="mb-3 text-[10px] font-semibold tracking-[0.14em] text-[#8eae37] uppercase">
-                    Inclusions
+                    What’s included?
                   </p>
                   <p className="mb-3 text-xs text-[#596253]">
-                    The {selectedPackage.name} package includes the following:
+                    The {selectedPackage.name} plan includes:
                   </p>
                   <div className="mb-3 h-px w-full bg-[#dfe1d8]" />
                   <div className="grid gap-2 text-xs text-[#1d1d1d]">
@@ -136,6 +146,13 @@ export function BookingCalculator({
                       </div>
                     ))}
                   </div>
+                  {selectedPackage.confirmWithCamp.length > 0 && (
+                    <p className="mt-3 border-t border-[#dfe1d8] pt-3 text-[11px] leading-5 text-[#767d74]">
+                      Please confirm whether{" "}
+                      {selectedPackage.confirmWithCamp.join(" and ")} are also
+                      included with the camp.
+                    </p>
+                  )}
                 </div>
               </div>
             </fieldset>
@@ -146,7 +163,10 @@ export function BookingCalculator({
               </legend>
               <div className="grid gap-3 sm:grid-cols-2">
                 <label className="grid gap-2 text-[10px] font-semibold tracking-[0.12em] text-[#646b61] uppercase">
-                  Check-in
+                  <span>Check-in</span>
+                  <span className="text-[10px] font-normal tracking-normal text-[#767d74] normal-case">
+                    When will you arrive?
+                  </span>
                   <input
                     className="h-12 w-full rounded-none border border-border bg-white px-3 text-sm font-normal tracking-normal text-foreground outline-none focus:border-[#718d22] focus:ring-2 focus:ring-[#c7f34b]/50"
                     min={localDate}
@@ -161,7 +181,10 @@ export function BookingCalculator({
                   />
                 </label>
                 <label className="grid gap-2 text-[10px] font-semibold tracking-[0.12em] text-[#646b61] uppercase">
-                  Check-out
+                  <span>Check-out</span>
+                  <span className="text-[10px] font-normal tracking-normal text-[#767d74] normal-case">
+                    When will you leave?
+                  </span>
                   <input
                     className="h-12 w-full rounded-none border border-border bg-white px-3 text-sm font-normal tracking-normal text-foreground outline-none focus:border-[#718d22] focus:ring-2 focus:ring-[#c7f34b]/50"
                     min={checkIn || localDate}
@@ -225,7 +248,7 @@ export function BookingCalculator({
             className="border border-[#dfe1d8] bg-[#f1f6e4] p-5 sm:p-7 lg:sticky lg:top-6"
           >
             <p className="text-[9px] font-semibold tracking-[0.15em] text-[#657b2c] uppercase">
-              Your estimate · demo only
+              Your estimate · sample prices
             </p>
             <h2 className="mt-3 text-2xl font-[var(--font-display)] font-medium">
               Stay summary
@@ -284,9 +307,10 @@ export function BookingCalculator({
               </span>
             )}
             <p className="mt-4 text-center text-[10px] leading-5 text-[#767d74]">
-              These date bands and prices are placeholders, not confirmed
-              operating dates or a quote. Confirm availability, inclusions, and
-              final rates with the camp.
+              This is an estimate based on sample prices, not a confirmed quote.
+              The dates shown are examples and do not indicate actual operating
+              dates or availability. Confirm your dates, package inclusions, and
+              final price with the camp before making travel arrangements.
             </p>
           </aside>
         </div>

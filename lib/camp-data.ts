@@ -1,6 +1,6 @@
 export const locationUrl = 'https://maps.app.goo.gl/X19d6zzUb6sPfvvs8?g_st=aw'
-export const whatsappNumber = '919876543210'
-export const whatsappMessage = encodeURIComponent("Hi! I'm interested in staying at your Kedarnath camp. Could you share details about the stay and available dates?")
+export const whatsappNumber = '917302733848'
+export const whatsappMessage = encodeURIComponent("Hi, I'd like to ask about a stay at Kedarnath Camp. My dates are [check-in] to [check-out] for [number] guests. Could you confirm availability and the price?")
 export const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
 export const campInfo = {
@@ -8,14 +8,14 @@ export const campInfo = {
   slug: 'kedarnath-camp',
   location: 'Kedarnath, Uttarakhand, India',
   coordinates: '30.7321° N · 79.0656° E',
-  tagline: 'A tent stay in the Himalaya',
-  heroTitle: 'Rest easy',
-  heroTitleAccent: 'at Kedarnath.',
-  subtitle: 'A quiet place to pause, breathe mountain air, and wake up close to the trail.',
+  tagline: 'A tent stay in the Himalayas',
+  heroTitle: 'Rest well.',
+  heroTitleAccent: 'Wake up in Kedarnath.',
+  subtitle: 'A simple tent stay close to the Kedarnath trail. Get some rest, enjoy the mountain air, and get ready for the journey ahead.',
   nearbyPlaces: [
-    { label: 'Temple', value: '200 metres away' },
-    { label: 'Market', value: '100 metres away' },
-    { label: 'Famous spot', value: 'Hanuman Mandir near the Astha Path, close to the mandir darshan line' },
+    { label: 'Kedarnath Temple', value: 'Around 200 metres away' },
+    { label: 'Local market', value: 'Around 100 metres away' },
+    { label: 'Hanuman Mandir', value: 'Near the Astha Path and the temple darshan queue' },
   ],
 } as const
 
@@ -23,20 +23,26 @@ export const campPackages = [
   {
     id: 'ep',
     name: 'EP',
+    description: 'Room to rest',
     price: 500,
-    includes: ['heater inside camp', 'hot water for drinking purpose'],
+    includes: ['Heater inside the tent', 'Hot water for drinking'],
+    confirmWithCamp: [],
   },
   {
     id: 'cp',
     name: 'CP',
+    description: 'Stay with dinner',
     price: 800,
-    includes: ['heater inside camp', 'hot water for drinking purpose', 'hot water for bathing purpose', 'one time meal (dinner)'],
+    includes: ['Heater inside the tent', 'Hot water for drinking', 'Hot water for bathing', 'Dinner'],
+    confirmWithCamp: [],
   },
   {
     id: 'ap',
     name: 'AP',
+    description: 'Stay with meals',
     price: 1100,
-    includes: ['welcome tea', 'heater inside camp', 'hot water for drinking purpose', 'hot water for bathing purpose', 'two time meal (dinner, breakfast)'],
+    includes: ['Welcome tea', 'Hot water for bathing', 'Dinner and breakfast'],
+    confirmWithCamp: ['heater', 'hot water for drinking'],
   },
 ] as const
 
@@ -59,7 +65,7 @@ export const stayRates = [
 
 export const dateBasedRates = [
   {
-    label: 'Standard season',
+    label: 'Regular season',
     startDate: '2027-05-01',
     endDate: '2027-05-14',
     rates: { shared: 500, private: 700 },
@@ -84,19 +90,19 @@ export const formatRupees = (amount: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(amount)
 
 export const campPhotos = [
-  { label: 'The mountain-facing tent', detail: 'At camp', image: '/camp-photos/mountain-tent.jpeg', layout: 'lg:col-start-1 lg:row-start-1 lg:row-span-2' },
-  { label: 'A place to settle in', detail: 'Tent stay', image: '/camp-photos/tent-opening.jpeg', layout: 'lg:col-start-2 lg:row-start-1' },
-  { label: 'Bedding for the night', detail: 'Inside the tent', image: '/camp-photos/tent-bedding.jpeg', layout: 'lg:col-start-3 lg:row-start-1' },
-  { label: 'Room to rest', detail: 'Camp interior', image: '/camp-photos/sleeping-bags.jpeg', layout: 'lg:col-start-2 lg:row-start-2' },
-  { label: 'A warm tent at dusk', detail: 'At camp', image: '/camp-photos/orange-tent.jpeg', layout: 'lg:col-span-2 lg:col-start-1 lg:row-start-3' },
+  { label: 'The tents', detail: 'Around the camp', image: '/camp-photos/mountain-tent.jpeg', layout: 'lg:col-start-1 lg:row-start-1 lg:row-span-2' },
+  { label: 'Bedding for the night', detail: 'Inside the tent', image: '/camp-photos/tent-opening.jpeg', layout: 'lg:col-start-2 lg:row-start-1' },
+  { label: 'Inside the tent', detail: 'Tent accommodation', image: '/camp-photos/tent-bedding.jpeg', layout: 'lg:col-start-3 lg:row-start-1' },
+  { label: 'A look around camp', detail: 'Kedarnath, Uttarakhand', image: '/camp-photos/sleeping-bags.jpeg', layout: 'lg:col-start-2 lg:row-start-2' },
+  { label: 'The mountain-facing tent', detail: 'Around the camp', image: '/camp-photos/orange-tent.jpeg', layout: 'lg:col-span-2 lg:col-start-1 lg:row-start-3' },
   { label: 'Kedarnath Temple', detail: 'Kedarnath, Uttarakhand', image: '/camp-photos/kedarnath-temple.jpeg', layout: 'lg:col-start-3 lg:row-start-2 lg:row-span-2' },
 ]
 
 export const galleryPhotos = [
-  { label: 'Mountain-facing tent', image: '/camp-photos/mountain-tent.jpeg', layout: 'col-span-2' },
+  { label: 'The tents', image: '/camp-photos/mountain-tent.jpeg', layout: 'col-span-2' },
   { label: 'Kedarnath Temple', image: '/camp-photos/kedarnath-temple.jpeg', layout: 'row-span-2' },
   { label: 'Tent bedding', image: '/camp-photos/tent-bedding.jpeg', layout: '' },
-  { label: 'A place to rest', image: '/camp-photos/tent-interior.jpeg', layout: '' },
+  { label: 'Inside the tent', image: '/camp-photos/tent-interior.jpeg', layout: '' },
   { label: 'Inside the camp', image: '/camp-photos/orange-tent.jpeg', layout: 'col-span-2' },
   { label: 'Sleeping bags', image: '/camp-photos/sleeping-bags.jpeg', layout: '' },
 ]
@@ -104,27 +110,27 @@ export const galleryPhotos = [
 export const campFacilities = [
   {
     title: 'Temple nearby',
-    detail: 'The temple is located just 200 metres away from the camp.',
+    detail: 'Kedarnath Temple is approximately 200 metres from the camp.',
   },
   {
     title: 'Market nearby',
-    detail: 'The market is within 100 metres of the camp for quick access.',
+    detail: 'The local market is around 100 metres away for shops and essentials.',
   },
   {
     title: 'Washrooms nearby',
-    detail: 'Within approximately 40–50 metres of the camp.',
+    detail: 'Washrooms are approximately 40–50 metres from the camp.',
   },
   {
-    title: 'Warm tent',
-    detail: 'A heater or blower is available inside the camp.',
+    title: 'Heating inside the tent',
+    detail: 'A heater or blower is available inside the tent.',
   },
   {
     title: 'Hot water',
-    detail: 'Available for drinking and bathing.',
+    detail: 'Hot water is available for drinking and bathing. Please confirm availability and timings with the camp.',
   },
   {
     title: 'First aid',
-    detail: 'First-aid facility available at the camp.',
+    detail: 'First-aid facilities are available at the camp.',
   },
  
 ] as const
